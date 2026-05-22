@@ -238,7 +238,7 @@ section {
     border-radius: 4px;
     background: var(--surface);
     padding: 2.5rem;
-    min-height: 200px;
+    min-height: 260px;
 }
 
 .tab-content {
@@ -246,10 +246,13 @@ section {
 }
 
 .tab-content.active {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
 }
 
-.tab-content h3 {
+.project-info h3 {
     font-family: var(--font-display);
     font-size: 1.7rem;
     font-weight: 600;
@@ -274,10 +277,9 @@ section {
     letter-spacing: 0.03em;
 }
 
-.tab-content > p {
+.project-info p {
     color: var(--text);
     margin-bottom: 1.5rem;
-    max-width: 580px;
 }
 
 .repo-link {
@@ -292,6 +294,44 @@ section {
 
 .repo-link:hover {
     color: var(--coffee-dark);
+}
+
+/* ==========================================
+   GALLERY
+   ========================================== */
+.project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.project-gallery img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.project-gallery img:hover {
+    opacity: 0.9;
+}
+
+.gallery-empty {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 180px;
+    border: 1.5px dashed var(--coffee-light);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--coffee-light);
+    background: var(--bg-alt);
 }
 
 /* ==========================================
@@ -460,6 +500,10 @@ footer {
 
     .tab-contents {
         padding: 1.5rem;
+    }
+
+    .tab-content.active {
+        grid-template-columns: 1fr;
     }
 
     .skills-grid {
